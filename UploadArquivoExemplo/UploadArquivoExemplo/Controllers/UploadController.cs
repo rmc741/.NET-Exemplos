@@ -16,9 +16,9 @@ namespace UploadArquivoExemplo.Controllers
             using (var reader = new StreamReader(file.OpenReadStream()))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                var records = csv.GetRecords<DadosTablet>();
+                var records = csv.GetRecords<DadosTablet>().ToList();
                 //Console.WriteLine(records.ToList().ToString());
-                return records.ToList();
+                return records;
             }
         }
     }
